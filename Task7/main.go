@@ -6,10 +6,10 @@ import (
 )
 
 func main() {
-	var num, sum int
+	var ch, sum int
 	
 	for {
-		_, err := fmt.Scan(&num)
+		_, err := fmt.Scan(&ch)
 		if err == io.EOF {
 			break
 		}
@@ -17,7 +17,7 @@ func main() {
 			fmt.Println("Ошибка ввода:", err)
 			return
 		}
-		sum += num
+		sum += ch
 	}
 	
 	fmt.Println(sum)
