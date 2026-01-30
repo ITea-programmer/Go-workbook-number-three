@@ -1,25 +1,28 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"strconv"
 	"strings"
 )
 
 func main() {
 	fmt.Println("Введите строку с числами, которые нужно поделить.")
-	var s string
-	fmt.Scanf("%s\n", &s)
+	
+	reader := bufio.NewReader(os.Stdin)
+	s, _ := reader.ReadString('\n')
+	s = strings.TrimSpace(s)
 	
 	result, err := delenie(s)
-	if err != nil {
+	if err != nil && err != io.EOF{
 		fmt.Printf("%.4f\n", 0.0)
 		return
 	}
 	
 	fmt.Printf("%.4f\n", result)
 }
-
 func delenie(s string) (float64, error) {
 	s = strings.ReplaceAll(s, " ", "")
 	
