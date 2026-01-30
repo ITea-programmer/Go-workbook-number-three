@@ -1,26 +1,28 @@
 package main
 
 import "fmt"
-import "strconv"
 
 func main() {
-    fmt.Println("Введите число")
-    var ch uint
-    fmt.Scan(&ch)
-   fmt.Println(fn(ch))
+	fmt.Println("Введите число")
+	var ch uint
+	fmt.Scan(&ch)
+	fmt.Println(fn(ch))
 }
-func fn(ch uint) uint{
-    ch_1 = strconv.Itoa(ch)
-    answer := ""
-    for i in ch_1{
-        if i in "2468"{
-            s += i
-        }
-    }
-    if len(answer) != 0{
-        answer := srconv.Atoi(answer)
-        return answer
-    } else{
-        return 100
-    }
+
+func fn(ch uint) uint {
+	result := 0
+	multiplier := 1
+	for ch > 0 {
+		digit := ch % 10
+		if digit%2 == 0 && digit != 0 {
+			result = int(digit)*multiplier + result
+			multiplier *= 10
+		}
+		ch /= 10
+	}
+	
+	if result > 0 {
+		return uint(result)
+	}
+	return 100
 }
