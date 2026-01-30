@@ -9,7 +9,7 @@ import (
 func main() {
 	fmt.Println("Введите строку с числами, которые нужно поделить.")
 	var s string
-	fmt.Scanf("%[^\n]", &s)
+	fmt.Scanf("%s\n", &s)
 	
 	result, err := delenie(s)
 	if err != nil {
